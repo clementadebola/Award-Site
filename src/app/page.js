@@ -75,6 +75,10 @@ export default function Home() {
     });
 
 
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    };
+
   }, []);
 
 
