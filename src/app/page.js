@@ -22,7 +22,34 @@ export default function Home() {
     const yValues = [100, -150, -400];
 
 
-     
+    gsap.utils.toArray(".row").forEach((row, index) =>{
+      const cardleft = row.querySelector(".card-left");
+      const cardRight = row.querySelector(".card-right");
+
+      gsap.to(cardleft, {
+        x: leftXValues[index],
+        scrollTrigger: {
+          trigger: ".main",
+          start: "top center",
+          end: "150% bottom",
+          scrub: true,
+
+          onUpdate: (self) => {
+            const progress = self.progress;
+            cardleft.style.transform = `translateX(${
+              progress * leftXValues[index]
+            }px translateY${progress * yValues[index]}px rotate(${progress * leftRotationValues[index]}deg)`;
+
+            cardRight.style.transform = `translateX(${
+              progress * rightXValues[index]
+            }px translateY${progress * yValues[index]}px rotate(${progress * rightRotationValues[index]}deg)`;
+          }
+        }
+      })
+
+      gsap.to
+    }); 
+
   }, []);
 
 
