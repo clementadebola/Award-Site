@@ -46,9 +46,34 @@ export default function Home() {
           }
         }
       })
-
-      gsap.to
     }); 
+
+
+    gsap.to(".logo",{
+      scale: 1,
+      duration: 0.5,
+      ease: "power1.out",
+      scrollTrigger: ScrollTriggerSettings,
+    })
+
+    gsap.to(".line p",{
+      y: 0,
+      stagger: 0.1,
+      scale: 1,
+      duration: 0.5,
+      ease: "power1.out",
+      scrollTrigger: ScrollTriggerSettings,
+    });
+
+    gsap.to("button",{
+      y: 0,
+      opacity: 1,
+      delay: 0.25,
+      duration: 0.5,
+      ease: "power1.out",
+      scrollTrigger: ScrollTriggerSettings,
+    });
+
 
   }, []);
 
