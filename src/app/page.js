@@ -117,37 +117,20 @@ export default function Home() {
         </HeroBox>
 
         <PhoneShowcase>
-          <CloudEffect />
+          {/* <CloudEffect /> */}
           <PhoneContainer>
-            <Phone className="phone-image blue-phone">
+            <Phone className="phone-image">
               <Image
-                src="/iphone.png"
+                src="/phone-images.png"
                 alt="Blue iPhone"
                 width={200}
                 height={300}
                 style={{ objectPosition: "top" }}
               />
             </Phone>
-            <Phone className="phone-image black-phone">
-              <Image
-                src="/google-pixel.png"
-                alt="Google Pixel"
-                width={210}
-                height={320}
-                style={{ objectPosition: "top" }}
-              />
-            </Phone>
-            <Phone className="phone-image white-phone">
-              <Image
-                src="/samsung.png"
-                alt="Samsung Galaxy"
-                width={200}
-                height={300}
-                style={{ objectPosition: "top" }}
-              />
-            </Phone>
+          
           </PhoneContainer>
-          <ShadowEffect />
+          {/* <ShadowEffect /> */}
           <CertificationBadge>
             <CheckIcon>✓</CheckIcon>
             <BadgeText>PhoneCheck Certified</BadgeText>
@@ -346,35 +329,21 @@ const PhoneContainer = styled.div`
   align-items: flex-end;
   gap: 20px;
   z-index: 1;
-  padding-bottom: 50px; /* Create space for fade effect */
+  padding-bottom: 50px; 
 `;
 
 const Phone = styled.div`
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.3s ease;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
 
-  &.blue-phone {
-    transform: perspective(800px) rotateY(-5deg) rotateX(5deg) translateZ(20px);
-    z-index: 1;
-  }
 
-  &.black-phone {
-    transform: perspective(800px) rotateY(0deg) rotateX(3deg) translateZ(30px)
-      translateY(-25px);
-    z-index: 3;
-  }
-
-  &.white-phone {
-    transform: perspective(800px) rotateY(5deg) rotateX(5deg) translateZ(20px);
-    z-index: 2;
-  }
 
   img {
     display: block;
     object-fit: contain;
     border-radius: 15px;
+    width: 400px;
   }
 
   /* Apply mask gradient to create fade-out effect */
