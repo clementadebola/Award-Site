@@ -14,7 +14,6 @@ export default function Home() {
   const heroRef = useRef(null);
 
   useEffect(() => {
-    // Hero text animations
     gsap.from(".hero-title", {
       opacity: 0,
       y: 50,
@@ -48,7 +47,7 @@ export default function Home() {
       duration: 1.8,
       ease: "power2.out",
       onComplete: () => {
-        // Add subtle floating animation
+
         gsap.to(".phone-image", {
           y: "-15px",
           duration: 2.5,
@@ -63,14 +62,6 @@ export default function Home() {
       },
     });
 
-    // Animated cloud effect
-    gsap.to(".cloud-effect", {
-      opacity: [0.7, 0.9, 0.7],
-      scale: [0.95, 1.05, 0.95],
-      duration: 5,
-      repeat: -1,
-      ease: "sine.inOut",
-    });
   }, []);
 
   return (
@@ -117,20 +108,17 @@ export default function Home() {
         </HeroBox>
 
         <PhoneShowcase>
-          {/* <CloudEffect /> */}
           <PhoneContainer>
             <Phone className="phone-image">
               <Image
                 src="/phone-images.png"
                 alt="Blue iPhone"
-                width={200}
-                height={300}
-                style={{ objectPosition: "top" }}
+                width={700}
+                height={500}
+                priority
               />
-            </Phone>
-          
+            </Phone>     
           </PhoneContainer>
-          {/* <ShadowEffect /> */}
           <CertificationBadge>
             <CheckIcon>✓</CheckIcon>
             <BadgeText>PhoneCheck Certified</BadgeText>
@@ -318,32 +306,38 @@ const PhoneShowcase = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  padding: 40px 0 100px;
-  margin-bottom: 20px;
+  padding: 20px 0 80px;
+  margin: 20px auto 40px;
   overflow: hidden;
+  max-width: 1200px;
+  width: 100%;
 `;
 
 const PhoneContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 20px;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
   z-index: 1;
-  padding-bottom: 50px; 
 `;
 
 const Phone = styled.div`
   position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   transform-style: preserve-3d;
-  transition: transform 0.3s ease;
-
-
-
+  
   img {
-    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 700px;
     object-fit: contain;
-    border-radius: 15px;
-    width: 400px;
+    object-position: top;
+    
+    @media (max-width: 768px) {
+      max-width: 90%;
+    }
   }
 
   /* Apply mask gradient to create fade-out effect */
