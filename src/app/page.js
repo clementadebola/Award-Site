@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,15 +11,18 @@ import styled from "styled-components";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  const heroRef = useRef(null);
+
   useEffect(() => {
-    gsap.from(".hero-text h1", {
+    // Hero text animations
+    gsap.from(".hero-title", {
       opacity: 0,
       y: 50,
-      duration: 1,
-      ease: "power2.out",
+      duration: 1.2,
+      ease: "power3.out",
     });
 
-    gsap.from(".hero-text p", {
+    gsap.from(".hero-subtitle", {
       opacity: 0,
       y: 30,
       delay: 0.5,
@@ -32,115 +35,438 @@ export default function Home() {
       y: 20,
       delay: 0.8,
       duration: 1,
-      ease: "power2.out",
+      ease: "back.out(1.4)",
     });
 
-    gsap.from(".phone-images img", {
+    gsap.from(".phone-image", {
       opacity: 0,
+      y: 100,
+      rotationX: 15,
+      rotationY: (i) => [10, 0, -10][i],
       scale: 0.8,
-      filter: "blur(10px)",
-      stagger: 0.3,
-      duration: 1.5,
+      stagger: 0.2,
+      duration: 1.8,
       ease: "power2.out",
+      onComplete: () => {
+        // Add subtle floating animation
+        gsap.to(".phone-image", {
+          y: "-15px",
+          duration: 2.5,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          stagger: {
+            each: 0.3,
+            from: "center",
+          },
+        });
+      },
+    });
+    
+    // Animated cloud effect
+    gsap.to(".cloud-effect", {
+      opacity: [0.7, 0.9, 0.7],
+      scale: [0.95, 1.05, 0.95],
+      duration: 5,
+      repeat: -1,
+      ease: "sine.inOut",
     });
   }, []);
 
   return (
     <ReactLenis root>
-      <Header>
-        <Logo>TG Wireless</Logo>
+      <HeaderSection>
+        <LogoContainer>
+          <LogoIcon>🔌</LogoIcon>
+          <Logo>TG wireless</Logo>
+        </LogoContainer>
+        <SearchBox>
+          <SearchInput type="text" placeholder="Search our Products..." />
+          <SearchButton>🔍</SearchButton>
+        </SearchBox>
         <Nav>
-          <Link href="#">Home</Link>
-          <Link href="#">Products</Link>
-          <Link href="#">About Us</Link>
-          <Link href="#">Contact Us</Link>
-          <Button className="header-btn blue">Become a Member</Button>
-          <Button className="header-btn green">Wholesale Login</Button>
+          <NavLink href="#">Home</NavLink>
+          <NavLink href="#">Products</NavLink>
+          <NavLink href="#">About Us</NavLink>
+          <NavLink href="#">Contact Us</NavLink>
+          <NavLink href="#">Blog</NavLink>
         </Nav>
-      </Header>
-      <Hero>
-        <HeroText className="hero-text">
-          <h1>Trusted Partner for Wholesale Cell Phones</h1>
-          <p>Reliable wholesale cell phones at unbeatable prices, backed by trust and quality service.</p>
-        </HeroText>
-        <Button className="hero-btn">Explore Products</Button>
-        <PhoneImages className="phone-images">
-          <Image src="/iphone.png" alt="iPhone" width={150} height={250} />
-          <Image src="/google-pixel.png" alt="Google Pixel" width={190} height={280} />
-          <Image src="/samsung.png" alt="Samsung" width={150} height={250} />
-        </PhoneImages>
-      </Hero>
+        <ButtonContainer>
+          <Button className="blue">Become a Member</Button>
+          <Button className="green">Wholesale Login</Button>
+        </ButtonContainer>
+      </HeaderSection>
+
+      <TrustBadge>
+        <TrustIcon>🏆</TrustIcon>
+        <span>Chosen by 6,400+ Satisfied Clients</span>
+      </TrustBadge>
+
+      <HeroSection ref={heroRef}>
+        <HeroBox>
+          <HeroTitle className="hero-title">
+            Trusted Partner for <br />Wholesale Cell Phones
+          </HeroTitle>
+          <HeroSubtitle className="hero-subtitle">
+            Reliable wholesale cell phones at unbeatable prices,
+            <br />backed by trust and quality service.
+          </HeroSubtitle>
+          <HeroButton className="hero-btn">Explore Products</HeroButton>
+        </HeroBox>
+
+        <PhoneShowcase>
+  <CloudEffect />
+  <PhoneContainer>
+    <Phone className="phone-image blue-phone">
+      <Image 
+        src="/iphone.png" 
+        alt="Blue iPhone" 
+        width={150} 
+        height={300}
+        style={{ objectPosition: 'top' }}
+      />
+    </Phone>
+    <Phone className="phone-image black-phone">
+      <Image 
+        src="/google-pixel.png" 
+        alt="Google Pixel" 
+        width={180} 
+        height={320}
+        style={{ objectPosition: 'top' }}
+      />
+    </Phone>
+    <Phone className="phone-image white-phone">
+      <Image 
+        src="/samsung.png" 
+        alt="Samsung Galaxy" 
+        width={150} 
+        height={300}
+        style={{ objectPosition: 'top' }}
+      />
+    </Phone>
+  </PhoneContainer>
+  <ShadowEffect />
+  <CertificationBadge>
+    <CheckIcon>✓</CheckIcon>
+    <BadgeText>PhoneCheck Certified</BadgeText>
+  </CertificationBadge>
+</PhoneShowcase>
+
+        <BrandsSection>
+          <BrandsTitle>Brands We Carry</BrandsTitle>
+          <BrandLogos>
+            <BrandLogo>Verizon</BrandLogo>
+            <BrandLogo>Apple</BrandLogo>
+            <BrandLogo>Samsung</BrandLogo>
+            <BrandLogo>Google</BrandLogo>
+            <BrandLogo>Motorola</BrandLogo>
+          </BrandLogos>
+        </BrandsSection>
+      </HeroSection>
     </ReactLenis>
   );
 }
 
-const Header = styled.header`
+// Styled Components
+const HeaderSection = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 15px 40px;
   background: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+`;
+
+const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const LogoIcon = styled.span`
+  font-size: 24px;
+  margin-right: 8px;
 `;
 
 const Logo = styled.h2`
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+`;
+
+const SearchBox = styled.div`
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  border-radius: 20px;
+  padding: 0 15px;
+  margin-left: 20px;
+`;
+
+const SearchInput = styled.input`
+  border: none;
+  background: transparent;
+  padding: 8px 10px;
+  font-size: 14px;
+  width: 180px;
+  &:focus {
+    outline: none;
+  }
+`;
+
+const SearchButton = styled.button`
+  background: transparent;
+  border: none;
+  cursor: pointer;
 `;
 
 const Nav = styled.nav`
   display: flex;
   align-items: center;
-  gap: 20px;
-  a {
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
+  gap: 25px;
+`;
+
+const NavLink = styled(Link)`
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.2s;
+  
+  &:hover {
+    color: #007bff;
   }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 10px;
 `;
 
 const Button = styled.button`
-  padding: 10px 20px;
+  padding: 10px 18px;
   border: none;
   border-radius: 5px;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
   &.blue {
-    background: #007bff;
+    background: #1e88e5;
     color: white;
   }
+  
   &.green {
-    background: #28a745;
+    background: #4caf50;
     color: white;
   }
 `;
 
-const Hero = styled.section`
+const TrustBadge = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  background-color: #f9f9f9;
+  font-size: 14px;
+  color: #666;
+`;
+
+const TrustIcon = styled.span`
+  font-size: 16px;
+`;
+
+const HeroSection = styled.section`
+  padding: 30px 40px 60px;
+  position: relative;
+`;
+
+const HeroBox = styled.div`
   text-align: center;
-  padding: 60px 20px;
+  max-width: 800px;
+  margin: 0 auto 40px;
 `;
 
-const HeroText = styled.div`
-  max-width: 600px;
-  margin: 0 auto;
-  h1 {
-    font-size: 32px;
-    font-weight: bold;
-  }
-  p {
-    font-size: 16px;
-    color: #555;
+const HeroTitle = styled.h1`
+  font-size: 38px;
+  font-weight: 700;
+  color: #1a237e;
+  margin-bottom: 15px;
+  line-height: 1.2;
+  background: linear-gradient(to right, #1a237e, #0d47a1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
+`;
+
+const HeroSubtitle = styled.p`
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 25px;
+`;
+
+const HeroButton = styled.button`
+  background: #4caf50;
+  color: white;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
 `;
 
-const PhoneImages = styled.div`
+const PhoneShowcase = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
+  padding: 40px 0 100px;
+  margin-bottom: 20px;
+  overflow: hidden;
+`;
+
+const PhoneContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   gap: 20px;
-  margin-top: 30px;
-  img {
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  padding-bottom: 50px; /* Create space for fade effect */
+`;
+
+const Phone = styled.div`
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+  
+  &.blue-phone {
+    transform: perspective(800px) rotateY(-5deg) rotateX(5deg) translateZ(20px);
+    z-index: 1;
   }
+  
+  &.black-phone {
+    transform: perspective(800px) rotateY(0deg) rotateX(3deg) translateZ(30px) translateY(-25px);
+    z-index: 3;
+  }
+  
+  &.white-phone {
+    transform: perspective(800px) rotateY(5deg) rotateX(5deg) translateZ(20px);
+    z-index: 2;
+  }
+  
+  img {
+    display: block;
+    object-fit: contain;
+    border-radius: 15px;
+  }
+  
+  /* Apply mask gradient to create fade-out effect */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    z-index: 10;
+    pointer-events: none;
+  }
+`;
+
+const CloudEffect = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 150px;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 30%, rgba(255,255,255,0) 70%);
+  filter: blur(20px);
+  z-index: 0;
+`;
+
+const ShadowEffect = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+  height: 20px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(10px);
+  z-index: 0;
+  transform: translateY(15px);
+`;
+
+const CertificationBadge = styled.div`
+  position: absolute;
+  right: 10%;
+  top: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  z-index: 2;
+`;
+
+const CheckIcon = styled.div`
+  width: 25px;
+  height: 25px;
+  background: #4caf50;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 5px;
+  font-weight: bold;
+`;
+
+const BadgeText = styled.div`
+  font-size: 10px;
+  text-align: center;
+  color: #4caf50;
+  font-weight: 600;
+`;
+
+const BrandsSection = styled.div`
+  text-align: center;
+  margin-top: 50px;
+`;
+
+const BrandsTitle = styled.h3`
+  font-size: 20px;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 15px;
+`;
+
+const BrandLogos = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+`;
+
+const BrandLogo = styled.div`
+  color: #888;
+  font-weight: 500;
 `;
