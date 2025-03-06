@@ -8,15 +8,73 @@ html, body{
     width: 100%;
     height: 100%;
     font-family: "habry pro";
-    background-color: #000;
-    color: #fff; 
+    background-color: #ffffff;
+    color: #000000; 
+}
+/* header section */
+.header{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+.navi{
+    display: flex;
+    gap: 2em;
+    align-items: center;
+}
+nav{
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    gap: 2em;
+}
+.header-btn{
+    padding: 1em 1em;
+    font-size: 12px;
+    color: #ffffff;
+    border:none;
+    border-radius: 8em;
+    background: rgb(70, 92, 214);
+    outline: none;
+}
+.logo{
+    font-size: 13px;
 }
 
-img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+
+/* hero section */
+.text-content{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* padding: 20px 0;
+    margin: 20px; */
+
+    h2{
+        font-size: 35px;
+        font-weight: bold;
+        color: black;
+    }
 }
+.hero-btn{
+    padding: 1em 2em;
+    font-size: 18px;
+    color: #ffffff;
+    border:none;
+    border-radius: 8em;
+    background: green;
+    outline: none;
+}
+
+.hero{
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
 
 section{
     position: relative;
@@ -26,9 +84,7 @@ section{
     align-items: center;
 }
 
-.hero{
-    height: 100vh;
-}
+
 .hero .img{
     width: 50%;
     aspect-ratio: 1;
@@ -40,7 +96,7 @@ section{
 }
 .footer a {
     font-size: 4vw;
-    color: #fff;
+    color: #000000;
 }
 
 .main{
@@ -76,10 +132,10 @@ section{
     align-items: center;
 }
 
-.logo{
+.mc-logo{
     width: 150px;
     height: 150px;
-    border: 2px solid #fff;
+    border: 2px solid #080808;
     border-radius: 100%;
     overflow: hidden;
     transform: scale(0);
@@ -106,12 +162,12 @@ section{
     transform: translateY(30px);
 }
 
-button{
+.main-btn{
     position: relative;
     padding: 1em 2em;
     font-size: 18px;
-    color: #fff;
-    border: 2px solid #fff;
+    color: #000000;
+    border: 2px solid #000000;
     border-radius: 8em;
     background: none;
     outline: none;
