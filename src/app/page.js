@@ -62,7 +62,7 @@ export default function Home() {
         });
       },
     });
-    
+
     // Animated cloud effect
     gsap.to(".cloud-effect", {
       opacity: [0.7, 0.9, 0.7],
@@ -105,52 +105,54 @@ export default function Home() {
       <HeroSection ref={heroRef}>
         <HeroBox>
           <HeroTitle className="hero-title">
-            Trusted Partner for <br />Wholesale Cell Phones
+            Trusted Partner for <br />
+            Wholesale Cell Phones
           </HeroTitle>
           <HeroSubtitle className="hero-subtitle">
             Reliable wholesale cell phones at unbeatable prices,
-            <br />backed by trust and quality service.
+            <br />
+            backed by trust and quality service.
           </HeroSubtitle>
           <HeroButton className="hero-btn">Explore Products</HeroButton>
         </HeroBox>
 
         <PhoneShowcase>
-  <CloudEffect />
-  <PhoneContainer>
-    <Phone className="phone-image blue-phone">
-      <Image 
-        src="/iphone.png" 
-        alt="Blue iPhone" 
-        width={150} 
-        height={300}
-        style={{ objectPosition: 'top' }}
-      />
-    </Phone>
-    <Phone className="phone-image black-phone">
-      <Image 
-        src="/google-pixel.png" 
-        alt="Google Pixel" 
-        width={180} 
-        height={320}
-        style={{ objectPosition: 'top' }}
-      />
-    </Phone>
-    <Phone className="phone-image white-phone">
-      <Image 
-        src="/samsung.png" 
-        alt="Samsung Galaxy" 
-        width={150} 
-        height={300}
-        style={{ objectPosition: 'top' }}
-      />
-    </Phone>
-  </PhoneContainer>
-  <ShadowEffect />
-  <CertificationBadge>
-    <CheckIcon>✓</CheckIcon>
-    <BadgeText>PhoneCheck Certified</BadgeText>
-  </CertificationBadge>
-</PhoneShowcase>
+          <CloudEffect />
+          <PhoneContainer>
+            <Phone className="phone-image blue-phone">
+              <Image
+                src="/iphone.png"
+                alt="Blue iPhone"
+                width={200}
+                height={300}
+                style={{ objectPosition: "top" }}
+              />
+            </Phone>
+            <Phone className="phone-image black-phone">
+              <Image
+                src="/google-pixel.png"
+                alt="Google Pixel"
+                width={210}
+                height={320}
+                style={{ objectPosition: "top" }}
+              />
+            </Phone>
+            <Phone className="phone-image white-phone">
+              <Image
+                src="/samsung.png"
+                alt="Samsung Galaxy"
+                width={200}
+                height={300}
+                style={{ objectPosition: "top" }}
+              />
+            </Phone>
+          </PhoneContainer>
+          <ShadowEffect />
+          <CertificationBadge>
+            <CheckIcon>✓</CheckIcon>
+            <BadgeText>PhoneCheck Certified</BadgeText>
+          </CertificationBadge>
+        </PhoneShowcase>
 
         <BrandsSection>
           <BrandsTitle>Brands We Carry</BrandsTitle>
@@ -231,7 +233,7 @@ const NavLink = styled(Link)`
   font-weight: 500;
   font-size: 15px;
   transition: color 0.2s;
-  
+
   &:hover {
     color: #007bff;
   }
@@ -245,22 +247,22 @@ const ButtonContainer = styled.div`
 const Button = styled.button`
   padding: 10px 18px;
   border: none;
-  border-radius: 5px;
+  border-radius: 25px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
-  
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
+
   &.blue {
     background: #1e88e5;
     color: white;
   }
-  
+
   &.green {
     background: #4caf50;
     color: white;
@@ -294,7 +296,7 @@ const HeroBox = styled.div`
 `;
 
 const HeroTitle = styled.h1`
-  font-size: 38px;
+  font-size: 58px;
   font-weight: 700;
   color: #1a237e;
   margin-bottom: 15px;
@@ -313,7 +315,7 @@ const HeroSubtitle = styled.p`
 `;
 
 const HeroButton = styled.button`
-  background: #4caf50;
+  background: #06960BFF;
   color: white;
   padding: 12px 28px;
   font-size: 16px;
@@ -322,7 +324,7 @@ const HeroButton = styled.button`
   border-radius: 25px;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
-  
+
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -352,37 +354,42 @@ const Phone = styled.div`
   transform-style: preserve-3d;
   transition: transform 0.3s ease;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
-  
+
   &.blue-phone {
     transform: perspective(800px) rotateY(-5deg) rotateX(5deg) translateZ(20px);
     z-index: 1;
   }
-  
+
   &.black-phone {
-    transform: perspective(800px) rotateY(0deg) rotateX(3deg) translateZ(30px) translateY(-25px);
+    transform: perspective(800px) rotateY(0deg) rotateX(3deg) translateZ(30px)
+      translateY(-25px);
     z-index: 3;
   }
-  
+
   &.white-phone {
     transform: perspective(800px) rotateY(5deg) rotateX(5deg) translateZ(20px);
     z-index: 2;
   }
-  
+
   img {
     display: block;
     object-fit: contain;
     border-radius: 15px;
   }
-  
+
   /* Apply mask gradient to create fade-out effect */
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     height: 80px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
     z-index: 10;
     pointer-events: none;
   }
@@ -395,7 +402,12 @@ const CloudEffect = styled.div`
   transform: translateX(-50%);
   width: 100%;
   height: 150px;
-  background: radial-gradient(ellipse at center, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 30%, rgba(255,255,255,0) 70%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.6) 30%,
+    rgba(255, 255, 255, 0) 70%
+  );
   filter: blur(20px);
   z-index: 0;
 `;
@@ -405,7 +417,11 @@ const ShadowEffect = styled.div`
   bottom: 0;
   width: 80%;
   height: 20px;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
   filter: blur(10px);
   z-index: 0;
   transform: translateY(15px);
