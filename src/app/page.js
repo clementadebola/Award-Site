@@ -48,6 +48,7 @@ export default function Home() {
       ease: "power2.out",
       onComplete: () => {
         
+        
 
         gsap.to(".phone-image", {
           y: "-15px",
