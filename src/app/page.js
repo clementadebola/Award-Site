@@ -72,7 +72,7 @@ export default function Home() {
       <HeaderSection>
         <LogoContainer>
           <LogoIcon>🔌</LogoIcon>
-          <Logo>TG wireless</Logo>
+          <Logo>ZG wireless</Logo>
         </LogoContainer>
         <SearchBox>
           <SearchInput type="text" placeholder="Search our Products..." />
