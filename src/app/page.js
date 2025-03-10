@@ -86,7 +86,7 @@ export default function Home() {
           <NavLink href="#">Blog</NavLink>
         </Nav>
         <ButtonContainer>
-          <Button className="blue">Become a Member</Button>
+          {/* <Button className="blue">Become a Member</Button> */}
           <Button className="green">Wholesale Login</Button>
         </ButtonContainer>
       </HeaderSection>
