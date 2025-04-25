@@ -2,97 +2,6 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import CategoryCard from './CategoriesCard';
 
-const SectionContainer = styled.section`
-  padding: 5rem 0;
-  background-color: ${props => props.theme.colors.grey};
-`;
-
-const SectionTitle = styled.h2`
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  position: relative;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background: ${props => props.theme.gradients.header};
-    border-radius: 2px;
-  }
-`;
-
-const SearchContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  
-  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
-    flex-direction: column;
-  }
-`;
-
-const SearchInput = styled.input`
-  flex: 1;
-  padding: 0.8rem 1.2rem;
-  border-radius: 50px;
-  border: 1px solid #ddd;
-  font-size: 1rem;
-  outline: none;
-  min-width: 0;
-  
-  &:focus {
-    border-color: ${props => props.theme.colors.primary};
-    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
-  }
-`;
-
-const FilterSelect = styled.select`
-  padding: 0.8rem 1.2rem;
-  border-radius: 50px;
-  border: 1px solid #ddd;
-  font-size: 1rem;
-  outline: none;
-  background-color: white;
-  min-width: 150px;
-  
-  &:focus {
-    border-color: ${props => props.theme.colors.primary};
-    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
-  }
-`;
-
-const FilterButton = styled.button`
-  padding: 0.8rem 1.5rem;
-  border-radius: 50px;
-  background: ${props => props.theme.colors.primary};
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    background: ${props => props.theme.colors.accent};
-    transform: translateY(-2px);
-  }
-`;
-
-const CategoriesGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-`;
-
 const CategoriesSection = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('all');
@@ -239,3 +148,95 @@ const CategoriesSection = () => {
 };
 
 export default CategoriesSection;
+
+
+const SectionContainer = styled.section`
+  padding: 5rem 0;
+  background-color: ${props => props.theme.colors.grey};
+`;
+
+const SectionTitle = styled.h2`
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: ${props => props.theme.gradients.header};
+    border-radius: 2px;
+  }
+`;
+
+const SearchContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    flex-direction: column;
+  }
+`;
+
+const SearchInput = styled.input`
+  flex: 1;
+  padding: 0.8rem 1.2rem;
+  border-radius: 50px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  outline: none;
+  min-width: 0;
+  
+  &:focus {
+    border-color: ${props => props.theme.colors.primary};
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+  }
+`;
+
+const FilterSelect = styled.select`
+  padding: 0.8rem 1.2rem;
+  border-radius: 50px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  outline: none;
+  background-color: white;
+  min-width: 150px;
+  
+  &:focus {
+    border-color: ${props => props.theme.colors.primary};
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+  }
+`;
+
+const FilterButton = styled.button`
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  background: ${props => props.theme.colors.primary};
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: ${props => props.theme.colors.accent};
+    transform: translateY(-2px);
+  }
+`;
+
+const CategoriesGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+`;
