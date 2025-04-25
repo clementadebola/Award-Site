@@ -120,6 +120,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <div className="container">
+        
         <FooterContent>
           <FooterSection>
             <h2 className="footer-title">NUESA Awards 2025</h2>
