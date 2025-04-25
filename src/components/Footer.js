@@ -1,6 +1,70 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 
+const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+  
+  return (
+    <FooterContainer>
+      <div className="container">
+
+        <FooterContent>
+          <FooterSection>
+            <h2 className="footer-title">NUESA Awards 2025</h2>
+            <p className="footer-description">
+              Celebrating excellence and talent across campus. Our annual awards recognize outstanding 
+              achievements and contributions to campus life.
+            </p>
+    
+            <SocialLinks>
+              
+            <SocialIcon href="#" aria-label="Facebook">
+                f
+              </SocialIcon>
+              <SocialIcon href="#" aria-label="Twitter">
+                X
+              </SocialIcon>
+              <SocialIcon href="#" aria-label="Instagram">
+                i
+              </SocialIcon>
+              <SocialIcon href="#" aria-label="LinkedIn">
+                in
+              </SocialIcon>
+            </SocialLinks>
+          </FooterSection>
+          
+          <FooterSection>
+            <h3 className="footer-title">Quick Links</h3>
+            <QuickLinks>
+              <QuickLink href="#categories">Categories</QuickLink>
+              <QuickLink href="#">Past Winners</QuickLink>
+              <QuickLink href="#">Event Schedule</QuickLink>
+              <QuickLink href="#">Nominations</QuickLink>
+              <QuickLink href="#">Contact Us</QuickLink>
+            </QuickLinks>
+          </FooterSection>
+        </FooterContent>
+        
+        <Copyright>
+          © {new Date().getFullYear()} NUESA Awards. All rights reserved.
+        </Copyright>
+      </div>
+      
+      <BackToTop onClick={scrollToTop} aria-label="Back to top">
+        ↑
+      </BackToTop>
+    </FooterContainer>
+  );
+};
+
+export default Footer;
+
+
 const FooterContainer = styled.footer`
   background: ${props => props.theme.gradients.footer};
   color: ${props => props.theme.colors.light};
@@ -108,66 +172,3 @@ const Copyright = styled.div`
   font-size: 0.9rem;
   opacity: 0.7;
 `;
-
-const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-  
-  return (
-    <FooterContainer>
-      <div className="container">
-
-        <FooterContent>
-          <FooterSection>
-            <h2 className="footer-title">NUESA Awards 2025</h2>
-            <p className="footer-description">
-              Celebrating excellence and talent across campus. Our annual awards recognize outstanding 
-              achievements and contributions to campus life.
-            </p>
-            
-            <SocialLinks>
-              
-            <SocialIcon href="#" aria-label="Facebook">
-                f
-              </SocialIcon>
-              <SocialIcon href="#" aria-label="Twitter">
-                X
-              </SocialIcon>
-              <SocialIcon href="#" aria-label="Instagram">
-                i
-              </SocialIcon>
-              <SocialIcon href="#" aria-label="LinkedIn">
-                in
-              </SocialIcon>
-            </SocialLinks>
-          </FooterSection>
-          
-          <FooterSection>
-            <h3 className="footer-title">Quick Links</h3>
-            <QuickLinks>
-              <QuickLink href="#categories">Categories</QuickLink>
-              <QuickLink href="#">Past Winners</QuickLink>
-              <QuickLink href="#">Event Schedule</QuickLink>
-              <QuickLink href="#">Nominations</QuickLink>
-              <QuickLink href="#">Contact Us</QuickLink>
-            </QuickLinks>
-          </FooterSection>
-        </FooterContent>
-        
-        <Copyright>
-          © {new Date().getFullYear()} NUESA Awards. All rights reserved.
-        </Copyright>
-      </div>
-      
-      <BackToTop onClick={scrollToTop} aria-label="Back to top">
-        ↑
-      </BackToTop>
-    </FooterContainer>
-  );
-};
-
-export default Footer;
