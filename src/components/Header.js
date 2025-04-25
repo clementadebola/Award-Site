@@ -3,6 +3,50 @@ import styled from 'styled-components';
 import Button from './Button';
 import Link from 'next/link';
 
+
+const Header = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <HeaderContainer>
+      <div className="container">
+        <HeaderContent>
+          <Logo>
+          NUESA<span>Awards</span>
+          </Logo>
+          
+          <NavMenu>
+            <Link href="#categories">
+              <Button outlined>Categories</Button>
+            </Link>
+            <Link href="#tickets">
+              <Button secondary>Buy Ticket</Button>
+            </Link>
+          </NavMenu>
+          
+          <MobileMenuButton onClick={() => setMobileMenuOpen(true)}>
+            ☰
+          </MobileMenuButton>
+        </HeaderContent>
+      </div>
+      
+      {mobileMenuOpen && (
+        <MobileMenu isOpen={mobileMenuOpen}>
+          <CloseButton onClick={() => setMobileMenuOpen(false)}>✕</CloseButton>
+          <Link href="#categories" onClick={() => setMobileMenuOpen(false)}>
+            <Button outlined>Categories</Button>
+          </Link>
+          <Link href="#tickets" onClick={() => setMobileMenuOpen(false)}>
+            <Button secondary>Buy Ticket</Button>
+          </Link>
+        </MobileMenu>
+      )}
+    </HeaderContainer>
+  );
+};
+
+export default Header;
+
 const HeaderContainer = styled.header`
   background: ${props => props.theme.gradients.header};
   padding: 1rem 0;
@@ -80,46 +124,3 @@ const CloseButton = styled.button`
   font-size: 1.5rem;
   cursor: pointer;
 `;
-
-const Header = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  return (
-    <HeaderContainer>
-      <div className="container">
-        <HeaderContent>
-          <Logo>
-          NUESA<span>Awards</span>
-          </Logo>
-          
-          <NavMenu>
-            <Link href="#categories">
-              <Button outlined>Categories</Button>
-            </Link>
-            <Link href="#tickets">
-              <Button secondary>Buy Ticket</Button>
-            </Link>
-          </NavMenu>
-          
-          <MobileMenuButton onClick={() => setMobileMenuOpen(true)}>
-            ☰
-          </MobileMenuButton>
-        </HeaderContent>
-      </div>
-      
-      {mobileMenuOpen && (
-        <MobileMenu isOpen={mobileMenuOpen}>
-          <CloseButton onClick={() => setMobileMenuOpen(false)}>✕</CloseButton>
-          <Link href="#categories" onClick={() => setMobileMenuOpen(false)}>
-            <Button outlined>Categories</Button>
-          </Link>
-          <Link href="#tickets" onClick={() => setMobileMenuOpen(false)}>
-            <Button secondary>Buy Ticket</Button>
-          </Link>
-        </MobileMenu>
-      )}
-    </HeaderContainer>
-  );
-};
-
-export default Header;
