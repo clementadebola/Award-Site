@@ -120,7 +120,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <div className="container">
-        
+
         <FooterContent>
           <FooterSection>
             <h2 className="footer-title">NUESA Awards 2025</h2>
@@ -135,7 +135,7 @@ const Footer = () => {
                 f
               </SocialIcon>
               <SocialIcon href="#" aria-label="Twitter">
-                t
+                X
               </SocialIcon>
               <SocialIcon href="#" aria-label="Instagram">
                 i
