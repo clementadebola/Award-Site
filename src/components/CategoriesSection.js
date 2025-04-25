@@ -12,31 +12,262 @@ const CategoriesSection = () => {
   const categoriesData = [
     {
       id: 1,
-      category: 'Best Student Leader',
+      category: 'Brand / Enterpreneur of the year',
       icon: '👑',
-      description: 'Recognizing exceptional leadership qualities and impact on campus.',
-      type: 'leadership',
+      description: 'Recognizing exceptional enterpreneurship qualities and impact on campus.',
+      type: 'Enterpreneur',
       candidates: [
-        { name: 'Alex Johnson', achievement: 'Led campus sustainability initiative' },
-        { name: 'Maria Garcia', achievement: 'President of Student Government' },
+        { name: 'Ziongate', achievement: 'gadget brand' },
+        { name: 'Timix', achievement: 'Design brand' },
         { name: 'David Kim', achievement: 'Founded peer mentoring program' }
       ]
     },
     {
       id: 2,
-      category: 'Academic Excellence',
+      category: 'Miss Petite',
       icon: '🎓',
-      description: 'Celebrating outstanding academic achievements and research contributions.',
-      type: 'academic',
+      description: 'Celebrating outstanding pretty ladies',
+      type: 'Petite',
       candidates: [
-        { name: 'Emma Wilson', achievement: '4.0 GPA, Published research paper' },
-        { name: 'James Lee', achievement: 'Valedictorian, Multiple scholarships' },
-        { name: 'Sophia Chen', achievement: 'Dean\'s list, Research assistant' }
+        { name: 'Berith'},
+        { name: 'James Lee' },
+        { name: 'Sophia Chen' }
       ]
     },
     {
       id: 3,
-      category: 'Innovation Award',
+      category: 'Miss Sohisticated',
+      icon: '💡',
+      description: 'Recognizing sophisticated student',
+      type: 'Sophisticated',
+      candidates: [
+        { name: 'Ryan Martinez' },
+        { name: 'Olivia Taylor' },
+        { name: 'Mohammed Ali' }
+      ]
+    },
+    {
+      id: 4,
+      category: 'Icon of the year',
+      icon: '🤝',
+      description: 'Honoring dedication to community engagement and volunteer service.',
+      type: 'Icon',
+      candidates: [
+        { name: 'Sarah Johnson', achievement: '500+ volunteer hours' },
+        { name: 'Michael Brown', achievement: 'Founded homeless outreach program' },
+        { name: 'Aisha Patel', achievement: 'Led multiple charity fundraisers' }
+      ]
+    },
+    {
+      id: 5,
+      category: 'Most Expensive',
+      icon: '🏆',
+      description: 'Celebrating Expensive student',
+      type: 'Expensive',
+      candidates: [
+        { name: 'Carlos Rodriguez'},
+        { name: 'Jasmine Williams' },
+        { name: 'Tyler Johnson' }
+      ]
+    },
+    {
+      id: 6,
+      category: 'Most endowed',
+      icon: '🎭',
+      description: 'Recognizing endowed ladies in the department',
+      type: 'endowed',
+      candidates: [
+        { name: 'Liam Wilson' },
+        { name: 'Emily Chen' },
+        { name: 'Nathan Davis' }
+      ]
+    },
+    {
+      id: 7,
+      category: 'Most Ebony',
+      icon: '🎭',
+      description: 'Recognizing Ebony ladies',
+      type: 'Ebony',
+      candidates: [
+        { name: 'Liam mary' },
+        { name: 'Emily Chen' },
+        { name: 'Victorial' }
+      ]
+    },
+    {
+      id: 8,
+      category: 'Popular Female',
+      icon: '🎭',
+      description: 'Recognizing Popular female students ',
+      type: 'Popular female',
+      candidates: [
+        { name: 'akinsemi mary' },
+        { name: 'berith'},
+        { name: 'Nathan Davis' }
+      ]
+    },
+    {
+      id: 9,
+      category: 'Most Popular Male',
+      icon: '🎭',
+      description: 'Recognizing Popular male students ',
+      type: 'popular male',
+      candidates: [
+        { name: 'Liam Wilson' },
+        { name: 'Emily Chen' },
+        { name: 'Nathan Davis' }
+      ]
+    },
+    {
+      id: 10,
+      category: 'Miss Pretty',
+      icon: '🎭',
+      description: 'Recognizing Pretty students.',
+      type: 'pretty',
+      candidates: [
+        { name: 'Liam Wilson'},
+        { name: 'Emily Chen' },
+        { name: 'Nathan Davis' }
+      ]
+    },
+    {
+      id: 11,
+      category: 'Hoc of year',
+      icon: '🎭',
+      description: 'Recognizing outstanding contributions to campus arts and culture.',
+      type: 'Hoc',
+      candidates: [
+        { name: 'Liam Wilson' },
+        { name: 'Emily Chen' },
+        { name: 'Nathan Davis' }
+      ]
+    },
+    {
+      id: 12,
+      category: 'Clique of Friends',
+      icon: '🎭',
+      description: 'Recognizing Clique of Friends',
+      type: 'clique',
+      candidates: [
+        { name: 'jonathan, juwon' },
+        { name: 'Emily Chen' },
+        { name: 'Nathan Davis' }
+      ]
+    },
+    {
+      id: 13,
+      category: 'Most popular Personality',
+      icon: '🎭',
+      description: 'Recognizing personality',
+      type: 'popular',
+      candidates: [
+        { name: 'Liam Wilson'},
+        { name: 'Emily Chen'},
+        { name: 'Nathan Davis' }
+      ]
+    },
+    {
+      id: 14,
+      category: 'Sophmor of the year',
+      icon: '🎭',
+      description: 'Recognizing outstanding contributions to campus arts and culture.',
+      type: 'arts',
+      candidates: [
+        { name: 'Liam Wilson'},
+        { name: 'Emily Chen' },
+        { name: 'Nathan Davis' }
+      ]
+    },
+    {
+      id: 15,
+      category: 'Best departmental Fresher (Male)',
+      icon: '🎭',
+      description: 'Recognizing outstanding contributions to campus arts and culture.',
+      type: 'fresher',
+      candidates: [
+        { name: 'Liam Wilson'},
+        { name: 'Emily Chen'},
+        { name: 'Nathan Davis' }
+      ]
+    },
+    {
+      id: 16,
+      category: 'Best departmental Fresher (Female)',
+      icon: '🎭',
+      description: 'Recognizing outstanding contributions to campus arts and culture.',
+      type: 'fresher',
+      candidates: [
+        { name: 'Liam Wilson' },
+        { name: 'Emily Chen' },
+        { name: 'Nathan Davis' }
+      ]
+    },
+    {
+      id: 17,
+      category: 'Tiktoker of the year',
+      icon: '🎭',
+      description: 'Recognizing outstanding contributions of tiktoker',
+      type: 'tiktoker',
+      candidates: [
+        { name: 'Liam Wilson', achievement: 'Directed the college tiktok acct well' },
+        { name: 'Emily Chen', achievement: 'Published poetry collection' },
+        { name: 'Nathan Davis', achievement: 'Founded multicultural festival' }
+      ]
+    },
+    {
+      id: 18,
+      category: 'Best Course rep of the year',
+      icon: '🎭',
+      description: 'Recognizing outstanding contributions to campus arts and culture.',
+      type: 'course rep',
+      candidates: [
+        { name: 'Liam Wilson', achievement: 'Directed award-winning play' },
+        { name: 'Emily Chen', achievement: 'Published poetry collection' },
+        { name: 'Nathan Davis', achievement: 'Founded multicultural festival' }
+      ]
+    },
+    {
+      id: 19,
+      category: 'Most influential',
+      icon: '🎭',
+      description: 'Recognizing influential students.',
+      type: 'influential',
+      candidates: [
+        { name: 'Liam Wilson', achievement: 'Directed award-winning play' },
+        { name: 'Emily Chen', achievement: 'Published poetry collection' },
+        { name: 'Nathan Davis', achievement: 'Founded multicultural festival' }
+      ]
+    },
+    {
+      id: 20,
+      category: 'Best Lecturer',
+      icon: '🎭',
+      description: 'Recognizing outstanding contributions of lecturers in the College',
+      type: 'lecturer',
+      candidates: [
+        { name: 'Dr. Olabode', achievement: 'Directed award-winning play' },
+        { name: 'Emily Chen', achievement: 'Published poetry collection' },
+        { name: 'Nathan Davis', achievement: 'Founded multicultural festival' }
+      ]
+    },
+    {
+      id: 21,
+      category: 'Best Department',
+      icon: '🎭',
+      description: 'Recognizing outstanding contributions of department in the college.',
+      type: 'arts',
+      candidates: [
+        { name: 'Computer Engineering', achievement: 'Directed award-winning play' },
+        { name: 'Electrical Engineering', achievement: 'Published poetry collection' },
+        { name: 'Civil Engineering', achievement: 'Founded multicultural festival' },
+        {name: 'Biomedical Engineering'},
+        {name: 'Mechanical Engineering'},
+        {name: 'Mechatronics Engineering'}
+      ]
+    },
+    {
+      id: 22,
+      category: 'Most Innovative',
       icon: '💡',
       description: 'Recognizing creative solutions and innovative projects.',
       type: 'innovation',
@@ -46,42 +277,6 @@ const CategoriesSection = () => {
         { name: 'Mohammed Ali', achievement: 'Developed AI study assistant' }
       ]
     },
-    {
-      id: 4,
-      category: 'Community Service',
-      icon: '🤝',
-      description: 'Honoring dedication to community engagement and volunteer service.',
-      type: 'service',
-      candidates: [
-        { name: 'Sarah Johnson', achievement: '500+ volunteer hours' },
-        { name: 'Michael Brown', achievement: 'Founded homeless outreach program' },
-        { name: 'Aisha Patel', achievement: 'Led multiple charity fundraisers' }
-      ]
-    },
-    {
-      id: 5,
-      category: 'Athletic Achievement',
-      icon: '🏆',
-      description: 'Celebrating excellence in sports and athletic competitions.',
-      type: 'sports',
-      candidates: [
-        { name: 'Carlos Rodriguez', achievement: 'Basketball MVP, State champions' },
-        { name: 'Jasmine Williams', achievement: 'Track & Field record holder' },
-        { name: 'Tyler Johnson', achievement: 'Swimming national qualifier' }
-      ]
-    },
-    {
-      id: 6,
-      category: 'Arts & Culture',
-      icon: '🎭',
-      description: 'Recognizing outstanding contributions to campus arts and culture.',
-      type: 'arts',
-      candidates: [
-        { name: 'Liam Wilson', achievement: 'Directed award-winning play' },
-        { name: 'Emily Chen', achievement: 'Published poetry collection' },
-        { name: 'Nathan Davis', achievement: 'Founded multicultural festival' }
-      ]
-    }
   ];
   
   useEffect(() => {
