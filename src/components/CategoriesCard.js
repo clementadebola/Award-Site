@@ -1,6 +1,42 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
+const CategoryCard = ({ category, icon, description, candidates }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+  };
+  
+  return (
+    <Card onClick={toggleExpand}>
+      <CardTop>
+        <CategoryIcon>{icon}</CategoryIcon>
+      </CardTop>
+      <CardContent>
+        <CategoryTitle>{category}</CategoryTitle>
+        <CategoryDescription>{description}</CategoryDescription>
+        
+        <CandidatesList isExpanded={isExpanded}>
+          {candidates.map((candidate, index) => (
+            <Candidate key={index}>
+              <CandidateAvatar>
+                {candidate.name.charAt(0)}
+              </CandidateAvatar>
+              <CandidateInfo>
+                <CandidateName>{candidate.name}</CandidateName>
+                <CandidateAchievement>{candidate.achievement}</CandidateAchievement>
+              </CandidateInfo>
+            </Candidate>
+          ))}
+        </CandidatesList>
+      </CardContent>
+    </Card>
+  );
+};
+
+export default CategoryCard;
+
 const Card = styled.div`
   background: ${props => props.theme.colors.light};
   border-radius: 10px;
@@ -90,38 +126,3 @@ const CandidateAchievement = styled.p`
   color: #888;
 `;
 
-const CategoryCard = ({ category, icon, description, candidates }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  
-  const toggleExpand = () => {
-    setIsExpanded(!isExpanded);
-  };
-  
-  return (
-    <Card onClick={toggleExpand}>
-      <CardTop>
-        <CategoryIcon>{icon}</CategoryIcon>
-      </CardTop>
-      <CardContent>
-        <CategoryTitle>{category}</CategoryTitle>
-        <CategoryDescription>{description}</CategoryDescription>
-        
-        <CandidatesList isExpanded={isExpanded}>
-          {candidates.map((candidate, index) => (
-            <Candidate key={index}>
-              <CandidateAvatar>
-                {candidate.name.charAt(0)}
-              </CandidateAvatar>
-              <CandidateInfo>
-                <CandidateName>{candidate.name}</CandidateName>
-                <CandidateAchievement>{candidate.achievement}</CandidateAchievement>
-              </CandidateInfo>
-            </Candidate>
-          ))}
-        </CandidatesList>
-      </CardContent>
-    </Card>
-  );
-};
-
-export default CategoryCard;

@@ -1,5 +1,12 @@
 import styled, { css } from 'styled-components';
 
+
+const Button = ({ children, ...props }) => {
+  return <ButtonWrapper {...props}>{children}</ButtonWrapper>;
+};
+
+export default Button;
+
 const ButtonWrapper = styled.button`
   padding: 0.8rem 1.5rem;
   border-radius: 50px;
@@ -46,9 +53,3 @@ const ButtonWrapper = styled.button`
     }
   `}
 `;
-
-const Button = ({ children, ...props }) => {
-  return <ButtonWrapper {...props}>{children}</ButtonWrapper>;
-};
-
-export default Button;
