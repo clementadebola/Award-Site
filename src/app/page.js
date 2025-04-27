@@ -43,7 +43,7 @@ const PageContainer = styled.div`
 
 const MainContent = styled.main`
   width: 100%;
-  // padding-top: 80px; 
+  // padding-top: 80px;
 
   @media (max-width: 768px) {
     // padding-top: 70px;
